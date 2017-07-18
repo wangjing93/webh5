@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        function clickTab(id) {
+            $('#con').empty();
+            $.ajax({
+                type:"post",
+                url:"tab",
+                data:{id:id},
+                success:function(data){
+                    if(data != null&&data.length > 0){
+                        var dataLi = data.data;
+                        var ul = "<ul>";
+                        for(var i=0; i< dataLi.length; i++) {
+                            var liCon = dataLi[i];
+                            ul += "<li>";
+                            ul += liCon;
+                            ul += "</li>";
+                        }
+                        ul += "</ul>";
+                        $('#con').append(ul);
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li id="1" onclick="clickTab('1')"></li>
+        <li id="2" onclick="clickTab('2')"></li>
+        <li id="3" onclick="clickTab('3')"></li>
+    </ul>
+    <div id="con"></div>
+</body>
+</html>

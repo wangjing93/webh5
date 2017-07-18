@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var arr1 = [1, 3, "b", "a", 0, 22];
+        var arr2 = [3, "c", "a", 4, "0"];
+        var arr3 = new Array();
+        var index = 0;
+        for (var i = 0; i < arr1.length; i++) {
+            for (var j = 0; j < arr2.length; j++) {
+                if(arr1[i] === arr2[j]) {
+                    arr3[index] = arr1[i];
+                    index++;
+                    break;
+                }
+            }
+        }
+        var arrStr = "[";
+        for (var k = 0; k < arr3.length; k++) {
+            arrStr += arr3[k];
+            if(k == arr3.length-1) {
+                break;
+            }
+            arrStr += ",";
+        }
+        arrStr += "]";
+        console.log(arrStr);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
